@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
     def create
+        @resource = find_resource
         @like = Like.create(like_params)
         respond_to do |format|
             format.html { redirect_to :back }
@@ -13,7 +14,8 @@ class LikesController < ApplicationController
     end
     
     def find_resource
-        type = params[:like][:likeable_type].contantize
+        type = params[:like][:likeable_type].constantize
         id = params[:like][:likeable_id]
+        type.send(:find, id)
     end
 end

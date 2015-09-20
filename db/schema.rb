@@ -47,13 +47,6 @@ ActiveRecord::Schema.define(version: 20150919054247) do
 
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
-  create_table "tex_posts", force: true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "text_posts", force: true do |t|
     t.string   "title"
     t.text     "body"

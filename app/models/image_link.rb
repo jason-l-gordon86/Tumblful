@@ -4,4 +4,8 @@ class ImageLink < ActiveRecord::Base
     
     belongs_to :user
     has_many :likes, as: :likeable
+    
+    def url_is_image?
+        
+    end
 end
