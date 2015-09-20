@@ -1,0 +1,15 @@
+<% @article_links.each do |article_link| %>
+    <h2><%= article_link.title %></h2>
+    <p><%= article_link.url %></p>
+    
+    <span class='likes pull-left'>
+        <%= article_link.likes.count %> likes
+    </span>
+    
+    <%= form_for Like.new do |f| %>
+        <%= f.hidden_field :likeable_type, :value => article_link.class %>
+        <%= f.hidden_field :likeable_id, :value => article_link.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.submit "Like" %>
+  <% end %>
+<% end %>

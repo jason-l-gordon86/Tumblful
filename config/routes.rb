@@ -7,6 +7,8 @@ Tumblful::Application.routes.draw do
     resources :follows, :except => [:new, :edit, :show, :update]
     root :to => 'follows#index', :as => :user_root
   end
+  
+  
 
   # You can have the root of your site routed with "root"
   root :to => 'home#index'
@@ -19,6 +21,10 @@ Tumblful::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  resources :image_links
+  resources :text_posts
+  resources :article_links
+  resources :likes, :only => [:create]
 
   # Example resource route with options:
   #   resources :products do
